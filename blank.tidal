@@ -1,0 +1,49 @@
+hush
+
+setcps (98/120)
+
+d1 $ s "bd sn:3 bd sn"
+
+d1 $ s "bd sn:3"
+
+d1 $ loopAt 8 $ striate 42 $ s "bev"
+
+d1 $ loopAt 8 $ every 2 rev $ chop 16 $ s "grace" # cut "1"
+4
+
+hush
+
+xfadeIn 2 2 $ s "bd"
+
+
+cps (130/120)
+
+d1 $ whenmod 5 4 (|+| speed "1.2 1.5 1 0.7") $ iter 4 $ stack [whenmod 6 5 (0.25 <~) $ density 2 $
+sound "squares ~ ~ squares"
+|+| cut "1" |+| speed "1 1.1", whenmod 7 5 (0.25 <~)
+$ sound "[[~ ~ ~ ~ ~ ~ laz:1*4]/8 [laz:1 laz:0]/2]*2"
+|+| speed "0.25" |+| cut "2", whenmod 4 3 (0.25 <~) $  sound "[cp:4/2 ~ ~ cp:4 ~ ~ ~ ~]*2", sound "[~ ~ ~ [~ gab*2]/2 ~ ~ ~]" |+| cut "3", whenmod 5 4 (0.25 <~) $ sound (samples "kit1*16" (run 33)) |+| speed "2" ]
+
+hush
+
+xfadeIn 1 32 $ stack [ s "[bd bd?] ~" ]
+
+xfadeIn 1 2 $ stack [ s "~ [lt [mt ht]]"]
+
+d2 $ s "~ [sn]" # n (irand 5) # gain 0.9
+
+d3 $ "[cp ~ cp?]*4" # cutoff (range 1200 3200 $ tri)
+
+d4 $ silence
+
+d4 $ whenmod 5 4 (fast 4) $ every 4 (# n (irand 5))$ slow 2 $ s "moog [moog ~ moog moog]" # n "c4 [f2 ~ d4 e4]" # cut "2"
+
+d4 $ degrade $ striate' 32 0.1 $ degrade $ s "moog moog" # n "f2 e3 g3 e5" # cut "2" # gain 0.9
+
+d5 $ every 4 ( slow 4 )  $ n "[~ c3 [~ c4 [~ c5 ] d4]] e3" # s "supersaw" # gain  0.75 # cutoff 500 # resonance 0.45 # cut "1"
+
+xfadeIn 1 3 $ silence
+
+hush
+
+:show

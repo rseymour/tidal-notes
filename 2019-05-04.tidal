@@ -1,0 +1,319 @@
+setcps $ 114/4/60
+
+d1 $ sound ""
+
+d1 $ stack [sound "bd:2 sd:1 [~ bd:4] sd:2",
+            sound "hh [cp cp:1] hh hh hc hh hh cp",
+            sound "[~ ~ cr ~]/4"]
+
+xfadeIn 1 8 $ stack [sound "bd:2 sd:1 [~ bd:4] sd:2",
+            sound "hh [cp cp:1] hh hh hc hh hh cp",
+            sound "[~ ~ cr:4 ~]/4"]
+
+hush
+
+d1 $ slowcat [s "bd arpy", s "bd cp"]
+
+d1 $ s "bd(2,5,3)"
+
+hush
+
+d2
+
+
+d1 $ sound "arpy" # reverb 0.4
+
+:t slowcat
+slowcat :: [Pattern a] -> Pattern a
+
+d1 $ sound "bd [cp sn]*4"
+
+d1 $ sound "bd sn sn"
+
+d1 $ sound "bd:2 sd:1 [~ bd:4] sd:2"
+
+d1 $ sound "bd:4 sd:1 [~ [bd:1 bd:1]] sd:2"
+
+d2 $ brak $ sound "sd sd sd sd"
+
+d3 $ sound "alphabet:0"
+
+hush
+
+d2 $ brak $ sound "[bd sd:4 [bd:1 bd:1?] sd:1]*2"
+
+d1 $ sound "[ho? hc:2 hh? hc]*2"
+
+xfadeIn 1 4 $ sound "bd bd bd bd"
+
+d1 $ stack [sound "bd:2 sd:1 [~ bd:4] sd:2",
+            sound "hh [cp cp:1] hh hh hc hh hh cp",
+            sound "[~ ~ cr:2 ~]/4"] # crush 7
+
+d3 $ sound "arpy"
+
+d1 $ sound "bd [<arpy:2 arpy:1 arpy:3> sd:2] bd:2 cp"
+
+
+d2 $ every 5 rev $ up (run "<16 8 24 [2 2 2]>") # sound "arpy"
+
+p "lil" $ silence
+
+hush
+
+d1 $ sound "sd:1"
+
+d1 $  s "bd hh sd hh bd hh sd? hh" # room 0.5 # orbit 2
+
+d1 $ every 8 (slow 2) $ slow 2 $  sometimesBy 0.25 (density 2) $ s "bd hh sd hh bd hh sd hh" # room 0.5 # orbit 1
+
+
+queryArc "1 2 3"
+
+Arc(0,1)
+
+
+d1 $ slowcat [n "<c3*8 f3*4>", n "<c3*8 f3*16 a3*8 f3*12>", n "<c3*16 g3*16 a3*4 f3*12>"] # s "supersaw" # attack 0.025 # decay 0.01 # sustain 0.4 # release 0.08
+
+d1 $ silence
+
+d1 $ sound ""
+
+d1 $ sound (samples "hc*8" (iter 4 $ run 4))
+
+xfadeIn 1 16 $ sound "bd(5,8)"
+
+xfade "lil" $ sound "gabba(3,8,<0 2 4>)"
+
+
+xfade 1 "drums" $ s "arpy*8" # n (run 8)
+
+clutch 1 $ s "arpy*8" # n (run 7)
+
+
+d1 $ sound "[ho? hc:2 hh? hc]*2"
+
+d2 $ (0.008 ~>) $ slowcat [n "<g4*8 c4*4>", n "<g3*12 c3*16 c4*8 a3*12>", n "<g4*12 d4*16 a4*4 c5*12>"] # s "supersaw" # attack 0.015 # decay 0.02 # sustain 0.3 # release 0.08
+
+d2 $ silence
+
+d2 $ n "gs3 af3?"
+# s "supersquare"
+
+d1 $ n "d3" # s "super808" # sustain "0.9" # voice "2"
+
+hush
+
+d1 $ palindrome $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+https://tidalcycles.org/index.php/Transforming_Patterns
+
+
+# cutoff (range 100 900 $ fast 4 $ tri) # resonance "0.85"
+
+
+
+
+(range 600 500 $ slow 2 $ tri)
+
+# resonance "0.2" # cut "1"
+
+
+
+d2 $ every 16 ( const $ n "[g4*4 c4(11,12) d4(14,16) a4(14,16)]/4" ) $ n "[a5(7,8) f4(8,16) a5(5,16) c4(7,16)]/4" # s "supersaw" # attack 0.05 # decay 0.02 # sustain 0.48 # release (range 0.28 0.68 $ slow 2 $ rand ) # cutoff (range 400 18000 $ slow 4 $ tri) # resonance "0.4" # gain 0.8
+
+xfadeIn 4 8 $ every 4 ( rev ) $ n "[g3 f5 ]" # s "supersquare" # attack 0.03 # decay 0.02 # sustain 2.7 # release (range 0.7 0.8 $ slow 8 $ tri ) # gain 0.8
+
+
+# delay 0.7 # delaytime 1.35 # delayfeedback 0.7
+
+hush
+
+
+
+d3 $ slowcat $ ["bd bd <bd cp> bd", "bd sd [~ bd] sd:2", "bd [[bd sd?] sd] [~ bd] sd"]
+
+
+do
+      setcps (130/120)
+      d1 $ s "[bd bd]"
+      d3 $ s "[bass:3*4]"
+      d2 $ s "[[~ sn:3], [~ hh]*2]"
+
+hush
+
+d1 $ s "cp sn:3"
+
+d2 $ s "cp cp cp cp cp"
+
+jumpIn' 1 4 $ sound "[808oh 808oh 808oh] 808oh 808oh 808oh 808oh 808oh 808oh 808oh "
+
+
+do
+{
+jumpIn' 1 0 $ sound "808bd ~ 808bd ~ ~ 808bd"
+}
+
+d1 $ n "c5 d4" # cut "<0.25 0.5>"
+
+setcps (60/120)
+
+
+d4 $ every 4 (fast 8 . (# speed "<3 1.5 -1 -0.7>")) $ s "[~ sd]*2"
+
+d2 $ "bd bd"
+
+d1 $ s "bd [~ bd] [sn:3] [bd sn:3]"
+
+d2 $ s "hh*8"
+
+d3 $ whenmod 8 4 (# up "8")  $ s (samples "[moog ~]*8" (run 8)) # cut "1"
+
+unsolo 2
+
+unsolo 1
+
+do
+    xfadeIn 1 1 $ silence
+    xfadeIn 2 2 $ silence
+    xfadeIn 3 4 $ s "bd bd bd bd"
+
+:t xfadeIn
+
+:t s
+
+s :: Pattern String -> ControlPattern
+
+
+xfadeIn ::
+Show a => a -> Time -> ControlPattern -> IO ()
+
+
+hush
+
+d1 $ s "bd bd bd"
+
+d2 $ s "sn sn sn sn sn"
+
+d1 $ sound "[sn sn:3, arpy arpy:4 arpy:2 arpy:4]"
+
+d2 $ sound "oh hh hh hh" # gain 0.8
+
+d1 $ sound "drum" |+ n "<1 2 3 4>"
+
+d1 $ sound "drum*4" |+| n "33 25 40 11 22 44 33 49"
+
+d1 $ sound "<bd, ~ sn:3 sn>"
+
+
+d1 ( s ( "bd sn bd sn"))
+
+d1 $ every 4 (# speed (sine + 2.5)) $ s "bd sn? bd sn"
+
+d1 $ every 4 (fast 8 . (# slow 2 ( speed "<3 1.5 1 0.7>"))) $ s "sd*4"
+
+
+hush
+
+setcps (90/120)
+
+d1 $ chunk 4 (rev . (slow 2.5)) $ sound  "alphabet:0 alphabet:1 alphabet:2 alphabet:3"
+
+d1 $ iter 7 $ fast 2 $ sound  "alphabet:0 alphabet:1 alphabet:2 alphabet:3" # cut "1"
+
+d2 $ sound  "bd sn:3 bd sn:3"
+
+
+
+
+http://192.168.1.3:8000
+
+
+
+d7 $ s "moog*5?" # n "0 5 7 9" # cut "1"
+
+d8 $ s "hh*8"
+
+d8 $ silence
+
+
+setcps (1)
+
+d1 $ sound "bd hh sn:3 hh"
+
+d1 $ silence
+
+d1 $ sound "arpy cp arpy:2"
+
+d2 $ sound "sn sn:2 bd sn"
+
+solo 2
+
+solo 1
+
+hush
+
+ABCD
+
+d2 "bd sn:3"
+
+d1 $ sound "numbers:1 numbers:2 numbers:3 numbers:4" # speed "0.9 3.3 0.6" # cut "1"
+
+d1 $ speed "1 1.7 1.8 0.9" # sound "arpy bd" # cut "1"
+
+d1 $ silence
+
+hush
+
+d2 $ "numbers:9" # cut "1"
+
+d1 $ sound "kurt:4 kurt:4" # shape "0 0.48" # gain "2"
+
+
+
+d1 $ s "[[~ supersaw] supersaw?]*3"  # choose [-12, -5, 0,5,7,4,11,12] # orbit 0 # gain 0.9
+
+d2 $ s "[[supersaw ~] supersaw?]*3"  #  (999 <~ choose [-12, -5, 0,5,7,4,11,12]) # orbit 1 # gain 0.9
+
+d3 $ s "[supersquare supersquare?]*6" # n "c4 c3 c5"
+
+d3 $ every 2 (fast 2) $ every (irand 3) (striate 2) $ s "[supersquare supersquare?]*3" # choose [-12, 0] # gain 0.8
+
+d1 $ chunk 2 (# cutoff 100) $ sound "arpy arpy:1 arpy:2 arpy:3"
+
+d4 $ every 3 ghost $ s "[~ 808bd:2]*3" # shape 0.8 #gain 1.1
+
+hush
+
+d1 $ s "voodoo:3"
+
+d1 $ sound "[voodoo voodoo:3, arpy arpy:4 arpy:2]"
+
+d1 $ sound "{voodoo voodoo:3, arpy arpy:4 arpy:2}"
+
+d1 $ sound "[bd sn, can:2 can:3 can:1, arpy arpy:1 arpy:2 arpy:3 arpy:5]"
+
+hush
+
+d1 $ sound "arpy arpy:1 arpy:3 arpy:7" # gain "{0.1 0.2 0.4, 0.6 0.9}"
+
+
+d1 $sound "drum*8"
+
+d1 $ sound "supersaw" +| n "[0, 3, 7] [0, 4, 7]"
+
+d2 $ "bd sn:3" # gain 0.8
+
+hush
+
+
+
+
+
+d1 $ stack [ s "[[bd bd?][sn:2 [bd bd?]]]*2",
+             s "808oh(7,8)" # gain (slow 2 $ saw) ]
+
+d2 $ sound "supersaw" +|
+     slowcat [n "<[0, 3, 7] [0, 3, 9?]>",
+              n "<[5, 8, 12?] [5, 11, 3]>",
+              n "[-3? -5 -7] -12?"] # gain 0.8 # cutoff 1000

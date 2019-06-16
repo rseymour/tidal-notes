@@ -1,0 +1,23 @@
+-- pinner
+
+setcps (180/60/4)
+
+d1 $ s "bd cp"
+
+d1 $ stack [s "bd:3 bd:3",
+            s "~ [~ sn:3] ~ sn:3",
+            s "hh*6?"] # delay 0.4 # delaytime 0.333 # delayfb 0.7
+
+d2 $ every 4 (# s "") $ whenmod 8 7 (striate 6) $ slow 4 $ every 4 (rev) $ every 2 (fast 2) $ whenmod 4 3 (|+ n "2")
+   $ n "cs4 [cs3 ds4 cs5 [gs5 ds5?] [cs4 cs4]] fs4 gs4" # s "supersquare" # cutoff 500 # resonance 0.1
+
+xfadeIn 2  8 $ silence
+
+xfadeIn 1 4 $ silence
+
+hush
+
+d3 $ striate 2 $ fast 4 $ s " ~ hmm ~ [hmm hmm hmm hmm]" # up "~ ~ ~ [1 7 5 4]"
+
+
+d2 $ n "cs4 fs4 [~ gs4] cs5" # s "supersquare"
