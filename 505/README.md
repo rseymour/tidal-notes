@@ -1,4 +1,4 @@
-# Roland 505 Samples!
+# Roland Rhythm Composer TR-505 Samples!
 
 Cheap beatbox! Mono samples with some slight variations
 
@@ -30,6 +30,8 @@ Some cymbals have filter sweeps in their `05` versions.
 | rd     | ride cymbal |
 
 
+## Signal chains
 
 signal chain: roland 505 on AA batteries -> kmi kmix -> ardour 5
+
 overdrive signal chain: roland 505 -> moog minifooger mf drive -> kmi kmix -> ardour 5
